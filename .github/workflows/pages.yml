@@ -17,6 +17,8 @@ jobs:
         run: python3 -m zipfile -e japan-ir-pages-source.zip .
       - name: Build static frontend
         run: python3 scripts/build_pages.py
+      - name: Update the Japanese and English latest article lists
+        run: python3 tools/update_latest_articles.py _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
